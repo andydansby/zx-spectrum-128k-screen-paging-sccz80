@@ -1,0 +1,41 @@
+This is a quick explanation of the loader.bas file and the resulting files
+
+10 CLEAR VAL "24399"
+clear out ram from 24399 to 65535
+VAL "" is a hack to save memory
+
+20 POKE 23739,111: BORDER VAL "0": PAPER VAL "0"
+turn off display to screen for loading
+and turns Border and Paper to black
+
+40 LET A = VAL "24400": LET B = A + VAL "2": LET C = VAL "32768": LET D = VAL "24450"
+
+24400 is where our bank switching code will reside
+24400 selects the bank you want to use
+24402 is bank switching code
+
+
+50 LOAD""SCREEN$
+load our awesome? screen
+
+
+60 LOAD"bank"CODE A
+load in our bank switcher
+
+70 POKE A, 1: RANDOMIZE USR B
+select to bank 1
+
+80 
+now run the bank switch code
+
+90 LOAD ""CODE C
+now we are loading in Bank 1.
+
+
+70 POKE A, 2
+select to bank 2
+
+
+
+100 LOAD ""CODE D
+110 RANDOMIZE USR D
