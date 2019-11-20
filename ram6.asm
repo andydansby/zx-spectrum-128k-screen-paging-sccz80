@@ -2,9 +2,6 @@ SECTION BANK_06
 
 ; everything that follows is in bank 6
 
-; void blackout1(void)
-; preserves a
-
 PUBLIC _blackout1
 
 _blackout1:

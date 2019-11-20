@@ -3,7 +3,7 @@
 
 SECTION BANK_00
 
-PUBLIC _blackout1
+PUBLIC _blackout2
 
 _blackout2:
 

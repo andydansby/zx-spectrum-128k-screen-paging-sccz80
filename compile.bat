@@ -26,15 +26,9 @@ cd ..
 
 rem BUILD CONSOLIDATED OBJECT FILE
 zcc +zx -v -c -clib=new --fsigned-char -o objects @zproject.lst
-
-
-
-zcc +zx -v -m -startup=31 -clib=new objects.o  -o compiled -pragma-include:zpragma.inc
-
-
-
-@rem zcc +zx -vn -m -startup=31 -clib=sdcc_iy -SO3 --max-allocs-per-node200000 @zproject.lst -pragma-include:zpragma.inc -o test.bin
-
+pause
+zcc +zx -v -m -startup=31 -clib=new objects.o -o compiled -pragma-include:zpragma.inc
+pause
 appmake +zx -b compiled_BANK_06.bin -o bank06.tap --org 49152 --noloader
 
 appmake +zx -b compiled_BANK_00.bin -o bank00.tap --org 49152 --noloader
