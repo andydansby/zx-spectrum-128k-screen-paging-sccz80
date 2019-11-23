@@ -1,5 +1,5 @@
 SECTION BANK_06
-
+org 0xc000;;believe this is assumed with target ZX
 ; everything that follows is in bank 6
 
 PUBLIC _blackout1

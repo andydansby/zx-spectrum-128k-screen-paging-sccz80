@@ -4,6 +4,7 @@ SET PATH=c:\z88dk199b;c:\z88dk199b\bin;c:\z88dk199b\lib\;c:\z88dk199b\lib\clibs;
 cls
 
 cd gfx
+	apack c screen0.scr screen0.bin
 	apack c screen1.scr screen1.bin
 	apack c screen2.scr screen2.bin
 	apack c screen3.scr screen3.bin
@@ -26,16 +27,17 @@ cd ..
 
 rem BUILD CONSOLIDATED OBJECT FILE
 zcc +zx -v -c -clib=new --fsigned-char -o objects @zproject.lst
-pause
+
 zcc +zx -v -m -startup=31 -clib=new objects.o -o compiled -pragma-include:zpragma.inc
-pause
-appmake +zx -b compiled_BANK_06.bin -o bank06.tap --org 49152 --noloader
 
-appmake +zx -b compiled_BANK_00.bin -o bank00.tap --org 49152 --noloader
+@rem pause
+appmake +zx -b compiled_BANK_06.bin -o bank06.tap --org 49152 --noloader --blockname bank06
 
-appmake +zx -b compiled_BANK_01.bin -o bank01.tap --org 49152 --noloader
+appmake +zx -b compiled_BANK_00.bin -o bank00.tap --org 49152 --noloader --blockname bank00
 
-appmake +zx -b compiled_CODE.bin -o lowRAM.tap --org 24450 --noloader
+appmake +zx -b compiled_BANK_01.bin -o bank01.tap --org 49152 --noloader --blockname bank01
+
+appmake +zx -b compiled_CODE.bin -o lowRAM.tap --org 24450 --noloader --blockname lowRAM
 
 
 

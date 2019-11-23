@@ -9,9 +9,16 @@
 
 copy /b loader.tap + loadscreen.tap + bankSW.tap
 
+copy "loader.tap" "..\"
+copy "bin2tap.exe" "..\"
+	
+	
 rem clean up in this directory
 del loadscreen.bin
 del loadscreen.tap
-@rem del bank.bin
-@rem del bank.tap
 del bankswitcher.bin
+del loader.tap
+del bankSW.tap
+
+@rem pause
+@rem cls
